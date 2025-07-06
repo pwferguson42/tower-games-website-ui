@@ -99,6 +99,15 @@
   align-items: center;
 }
 
+header .header-content {
+  display: flex;
+  align-items: center;
+}
+
+header .navigation.desktop-nav {
+  margin-left: auto;
+}
+
 /* Style all navigation buttons consistently */
 .navigation .mat-mdc-button {
   color: var(--text-color-dark);
