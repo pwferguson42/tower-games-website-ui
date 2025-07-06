@@ -1,0 +1,220 @@
+.header {
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-content {
+  height: var(--header-height);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+}
+
+.tower-logo{
+  width: 100%;
+  height: var(--logo-height);
+  padding-top: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.tower-logo-container{
+  position:absolute;
+  top: 1rem;
+  left:0;
+  z-index:1;
+}
+
+.tower-logo-background{
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+  width: 120%;
+  height: 115%;
+  z-index: -1;
+  padding: 0;
+  margin: 0;
+  box-shadow: var(--paper-shadow);
+  background: var(--paper-background);
+  filter: url(#wavy);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.navigation ul li a,
+.dropdown-trigger,
+.dropdown-content a {
+  /* Use a medium font weight */
+  font-weight: 500;
+
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* Better definition */
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+
+  /* Slightly increase size for better legibility */
+  font-size: 1rem;
+
+  /* Add a tiny bit of letter spacing */
+  letter-spacing: 0.01em;
+
+  /* Ensure the text has enough contrast with the background */
+  color: var(--primary-color-dark);
+
+  /* Make sure there's enough padding */
+  padding: 8px 12px;
+
+  /* Force hardware acceleration for crisper text */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  /* For smooth transitions */
+  transition: all 0.2s ease;
+}
+
+
+.navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.navigation li {
+  display: flex;
+  align-items: center;
+}
+
+/* Style all navigation buttons consistently */
+.navigation .mat-mdc-button {
+  color: var(--text-color-dark);
+  border-radius: 20px; /* Add this for rounded corners */
+  font-family: var(--font-headings);
+}
+
+/* Add hover state for navigation buttons */
+.navigation .mat-mdc-button:hover {
+  background-color: var(--secondary-color-lightest);
+  color: var(--text-color-dark);
+}
+
+
+/* Style the dropdown trigger specifically */
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-trigger mat-icon {
+  margin-left: 4px;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Add a hover buffer zone to keep dropdown visible */
+.dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px; /* Buffer zone height */
+  display: none;
+}
+
+.dropdown:hover::after {
+  display: block;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--background-color-light);
+  min-width: 200px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  z-index: 1000;
+  margin-top: 4px;
+  padding: 4px;
+  transition: opacity 0.1s ease, visibility 0s linear 0.1s;
+  overflow: hidden;
+
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.1s ease, visibility 0s linear 0s;
+  transition-delay: 0s; /* Show immediately on hover */
+}
+
+.dropdown-content:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Add delay for hiding the dropdown when moving away */
+.dropdown .dropdown-content {
+  transition-delay: 0.1s; /* Delay before hiding */
+}
+
+.dropdown-content a {
+  color: var(--text-color-dark);
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  transition: var(--background-color-light) 0.2s ease;
+  border-radius: 4px;
+  /* Normal case for dropdown items */
+  text-transform: none;
+  font-size: 14px;
+  letter-spacing: normal;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--secondary-color-lightest);
+  color: var(--text-color-light);
+}
+
+.mobile-menu-button {
+  display: none; /* Hidden by default on desktop */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Hide desktop navigation on mobile */
+  }
+
+  .mobile-menu-button {
+    display: block; /* Show mobile menu button */
+    margin-left: auto;
+  }
+
+  .header-content {
+    justify-content: space-between; /* Space between logo and menu button */
+  }
+}
+

@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="header-content">
+    <div class="logo tower-logo-background"></div>
+    <div class="tower-logo-container">
+      <a routerLink="/home" class="logo-link">
+        <img class="png-icon tower-logo" src="/assets/TowerOfIllusionName.png" alt="Tower of Illusion Games"/>
+      </a>
+    </div>
+
+    <!-- Regular desktop navigation - will be hidden on small screens via CSS -->
+    <nav class="navigation desktop-nav">
+      <ul>
+        <li class="dropdown">
+          <a mat-button class="dropdown-trigger">
+            Brigandier RPG System
+            <mat-icon>arrow_drop_down</mat-icon>
+          </a>
+          <div class="dropdown-content">
+            <a *ngFor="let link of navigationService.brigandierLinks" [routerLink]="link.path">
+              {{ link.label }}
+            </a>
+          </div>
+        </li>
+        <li><a mat-button routerLink="/kingdoms">Kingdoms</a></li>
+        <li><a mat-button routerLink="/scale-breaker">Scale Breaker</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile menu button - hidden on desktop, visible on mobile -->
+    <button mat-icon-button class="mobile-menu-button" (click)="onMenuButtonClick()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Side navigation - only for mobile -->
+  <mat-sidenav #sidenav class="sidenav-body" mode="over" position="end" [opened]="isSidenavOpen" (closed)="isSidenavOpen = false">
+    <div class="sidenav-header">
+      <button mat-icon-button class="close-button" (click)="isSidenavOpen = false" aria-label="Close menu">
+        <mat-icon>close</mat-icon>
+      </button>
+
+    </div>
+
+    <mat-nav-list>
+      <!-- Brigandier RPG System section -->
+      <h3 matSubheader>Brigandier RPG System</h3>
+      <a mat-list-item *ngFor="let link of navigationService.brigandierLinks"
+         [routerLink]="link.path"
+         (click)="isSidenavOpen = false">
+        {{ link.label }}
+      </a>
+
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/kingdoms" (click)="isSidenavOpen = false">Kingdoms</a>
+      <a mat-list-item routerLink="/scale-breaker" (click)="isSidenavOpen = false">Scale Breaker</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Your header with the toggle event -->
+    <app-header (menuToggled)="toggleSidenav()"></app-header>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<svg>
+  <filter id="wavy">
+    <feTurbulence x="0" y="0" baseFrequency="0.04" numOctaves="5" [attr.seed]="configService.siteContentSeed"></feTurbulence>
+    <feGaussianBlur stdDeviation="0.2" result="blurredTurbulence"/>
+    <feDisplacementMap in="SourceGraphic" in2="blurredTurbulence" scale="30" />
+    <feGaussianBlur stdDeviation="0.1774" />
+  </filter>
+</svg>
+
+
+
+
+

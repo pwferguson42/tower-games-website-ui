@@ -1,0 +1,22 @@
+<div class="home-page-container">
+  <div class="info-card">
+    <div class="info-card-background"></div>
+    <div class="info-card-content">
+      <h2>Brigandier Quick Start Guide</h2>
+      <p>
+        This quick start guide contains everything you need to start playing Brigandier. This includes: Simplified Character
+        Creation Guide, Rules Reference Sheets, Quick Start Magic Reference Sheets, and Seeking our Fortune -
+        One Page Adventure bundled together in one PDF. You can download the character sheets separately to help players
+        keep track of their characters.
+      </p>
+      <button
+        class="download-button"
+        (click)="downloadFile('3')"
+        [disabled]="downloadService.isDownloading('3')"
+      >
+        Download Quick Start
+      </button>
+    </div>
+  </div>
+</div>
+

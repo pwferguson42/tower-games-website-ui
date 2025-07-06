@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Gothic+A1:wght@300;400;500;700&display=swap');
+
+
+/* Define custom palette */
+:root {
+
+  /* Application color variables */
+  --primary-color: #41444B;
+  --primary-color-light: #5D6068;
+  --primary-color-lightest: #7C7F87;
+  --primary-color-dark: #1F2125;
+  --primary-color-darkest: #151923;
+
+  --secondary-color: #45434D;
+  --secondary-color-light: #625F6B;
+  --secondary-color-lightest: #827F8B;
+  --secondary-color-dark: #222026;
+  --secondary-color-darkest: #191524;
+
+  --highlight-color: #706A5F;
+  --highlight-color-light: #9C9588;
+  --highlight-color-lightest: #CAC4B7;
+  --highlight-color-dark: #38342E;
+  --highlight-color-darkest: #342C1C;
+
+  --accent-color-light: #52575D;
+  --accent-color-dark: #222529;
+
+  --background-color-light: #F8F9FA;
+  --background-color-dark: #1F2125;
+  --text-color-light: #FFFFFF;
+  --text-color-dark: #000000;
+
+  --paper-shadow: 2px 5px 5px #000000, 0 0 60px #8a4d0f inset;
+  --paper-background: #d6d4b6;
+
+  /* Font variables */
+  --font-headings: 'Cinzel', serif;
+  --font-primary: 'Gothic A1', sans-serif;
+  --font-secondary: 'Gothic A1', sans-serif;
+
+  /* Structure variables */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+
+  /* Typography scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Add transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
+  /* Header variables */
+  --header-height: 7.5rem;
+  --logo-height: 3rem;
+
+}
+
+/* General styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--text-color-dark);
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color-light);
+  padding-top: var(--header-height);
+  font-family: var(--font-primary);
+}
+
+/* Material overrides */
+.mat-toolbar {
+  background-color: var(--background-color-light) !important;
+  color: var(--background-color-dark) !important;
+}
+
+.mat-button, .mat-raised-button {
+  background-color: var(--background-color-light);
+  color: var(--background-color-dark);
+}
+
+.mat-button:hover, .mat-raised-button:hover {
+  background-color: var(--background-color-light);
+}
+.info-card {
+  display: inline-flex;
+  position: relative;
+  margin: 1rem;
+}
+.info-card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: var(--paper-shadow);
+  background: var(--paper-background);
+  filter: url(#wavy);
+  border-width: 1px;
+  border-style: solid;
+}
+.info-card svg {
+  height: 100%;
+  width: 100%;
+}
+.info-card-content {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.home-page-container{
+  padding: 2rem;
+}
+
+.download-button:hover:not(:disabled) {
+  background-color: var(--secondary-color-dark);
+}
+
+.download-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Layout utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: calc(100vh - 64px);
+}
+
+.content {
+  background-color: white;
+  border-radius: 4px;
+  /* box-shadow removed for flat look */
+  padding: 2rem;
+}
+
+/* Card styles */
+.mat-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  background-color: var(--background-color-light);
+  margin-bottom: 1rem;
+}
+
+/* Form fields */
+.mat-form-field {
+  width: 100%;
+}
+
+/* Elevation utilities */
+.elevation-1 {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.elevation-2 {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.sidenav-header .close-button {
+  color: var(--highlight-color-light);
+}
+
+.sidenav-header .close-button:hover {
+  color: var(--highlight-color-lightest);
+}
+
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 6rem; /* Smaller height on mobile */
+    --logo-height: 2rem;
+  }
+  .sidenav-header .close-button {
+    color: var(--highlight-color-light);
+  }
+
+  .sidenav-header .close-button:hover {
+    color: var(--highlight-color-lightest);
+  }
+}
+

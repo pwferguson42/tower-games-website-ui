@@ -1,0 +1,42 @@
+<div class="home-page-container">
+  <p>
+    In the world of Wryn Brigandiers band together to find treasure, adventure, and a way to connect with communities. These adventures
+    are designed to be completed in one play session, but they can also be strung together for to create a episodic story.
+  </p>
+  <div class="info-card">
+    <div class="info-card-background"></div>
+    <div class="info-card-content">
+      <h2>Brigands!!</h2>
+      <p>
+        This sandbox adventures takes the adventures through a horrific encounter with a group of bandits. After being captured
+        it is up to the plays to explore and find a way out of this situation. This adventure maps out an area complete with encounters.
+        The only thing the game master needs to do is write some context and get some friends together.
+      </p>
+      <button
+        class="download-button"
+        (click)="downloadFile('1')"
+        [disabled]="downloadService.isDownloading('1')"
+      >
+        Download Brigands!!
+      </button>
+    </div>
+  </div>
+  <div class="info-card">
+    <div class="info-card-background"></div>
+    <div class="info-card-content">
+      <h2>Seeking our Fortune</h2>
+      <p>
+        This one night adventure is split into three acts. The players will set out from the town of Littlewood seeking their fortune.
+        The adventure provides the game master with options to setup the story or roll from a tables to create the story. There are
+        enemy stat blocks to build encounters and tables to build out the area around the town.
+      </p>
+      <button
+        class="download-button"
+        (click)="downloadFile('7')"
+        [disabled]="downloadService.isDownloading('7')"
+      >
+        Download Seeking our Fortune
+      </button>
+    </div>
+  </div>
+</div>
