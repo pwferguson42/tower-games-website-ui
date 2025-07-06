@@ -1,37 +1,43 @@
-<div class="table-container">
-  <table class="download-table">
-    <thead>
-    <tr>
-      <th>Downloads</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let file of files">
-      <td class="filename-cell">
-        <div class="file-info">
-          <span class="filename">{{ file.filename }}</span>
-          <span class="filename">{{ file.description }}</span>
-          <span class="file-meta" *ngIf="file.size || file.type">
+<div class="home-page-container">
+  <div class="info-card">
+    <div class="info-card-content">
+      <div class="table-container">
+        <table class="download-table">
+          <thead>
+          <tr>
+            <th>Downloads</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let file of files">
+            <td class="filename-cell">
+              <div class="file-info">
+                <span class="filename">{{ file.filename }}</span>
+                <span class="filename">{{ file.description }}</span>
+                <span class="file-meta" *ngIf="file.size || file.type">
                   {{ file.type ? file.type + ' • ' : '' }}{{ file.size }}
                 </span>
-        </div>
-      </td>
-      <td class="action-cell">
-        <button
-          class="download-button"
-          (click)="downloadFile(file)"
-          [disabled]="downloadService.isDownloading(file.id)"
-        >
-          <mat-icon *ngIf="!downloadService.isDownloading(file.id)">file_download</mat-icon>
-          {{ downloadService.isDownloading(file.id) ? 'Downloading...' : 'Download' }}
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+              </div>
+            </td>
+            <td class="action-cell">
+              <button
+                class="download-button"
+                (click)="downloadFile(file)"
+                [disabled]="downloadService.isDownloading(file.id)"
+              >
+                <mat-icon *ngIf="!downloadService.isDownloading(file.id)">file_download</mat-icon>
+                {{ downloadService.isDownloading(file.id) ? 'Downloading...' : 'Download' }}
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 
-  <div *ngIf="files.length === 0" class="empty-state">
-    No files available for download.
+        <div *ngIf="files.length === 0" class="empty-state">
+          No files available for download.
+        </div>
+      </div>
+    </div>
   </div>
 </div>
